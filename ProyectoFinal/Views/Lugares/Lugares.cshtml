@@ -1,0 +1,15 @@
+﻿@{
+    Layout = null;
+}
+@{
+    ViewData["Title"] = "Lugares";
+}
+
+<h2>Bienvenido a Lugares</h2>
+
+<p>¡Aquí puedes explorar todos los lugares disponibles!</p>
+
+@if (TempData["Usuario"] != null)
+{
+    <p>Usuario actual: @TempData["Usuario"]</p>
+}

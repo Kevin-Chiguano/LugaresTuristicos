@@ -35,5 +35,29 @@ namespace ProyectoFinal.Controllers
             ViewBag.Error = "Todos los campos son obligatorios.";
             return View(usuario);
         }
+
+        [HttpGet]
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Login(string Nombre, string Contrasena)
+        {
+            // Validar las credenciales
+            var usuario = _context.Usuarios
+                .FirstOrDefault(u => u.Nombre == Nombre && u.Contrasena == Contrasena);
+
+            if (usuario != null)
+            {
+                // Guardar información en TempData o Session si es necesario
+                TempData["Usuario"] = usuario.Nombre; // Almacenar el usuario en TempData
+                return RedirectToAction("Lugares", "Lugares"); // Redirigir a la vista Lugares
+            }
+
+            ViewBag.Error = "Credenciales incorrectas.";
+            return View();
+        }
     }
 }
