@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using ProyectoFinal.Models;
 using System.Collections.Generic;
 
 namespace ProyectoFinal.Data
